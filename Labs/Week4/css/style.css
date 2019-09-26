@@ -1,0 +1,117 @@
+
+
+#title {
+  color: darkblue;
+  position: absolute;
+  left: 100px;
+  margin: 15px;
+  animation: titleBuildIn 2s;
+  animation-fill-mode: both;
+}
+
+#banner {
+  position: absolute;
+  top: 110px;
+  left: 100px;
+  height: 100px;
+  width: 1150px;
+  background-color: darkblue;
+  animation:bannerBuildIn 2s;
+  animation-fill-mode: both;
+}
+
+#gallery {
+  position:absolute;
+  top: 215px;
+  left: 100px;
+  display: flex;
+  flex-flow: row wrap;
+  }
+
+.icon {
+    opacity: 0;
+    background-color: purple;
+    width: 350px;
+    height: 150px;
+    margin: 10px;
+    padding: 1px;
+    animation: iconBuildIn 0.7s;
+    animation-fill-mode: both;
+}
+
+.iconOver {
+  animation: iconOverAnim 0.7s;
+  animation-fill-mode: both;
+}
+
+.iconOut {
+  animation: iconOutAnim 0.7s;
+  animation-fill-mode: both;
+}
+
+.iconClick {
+  animation: iconClickAnim 0.7s;
+  animation-fill-mode: both;
+}
+
+
+
+    
+
+
+  @keyframes iconBuildIn {
+    to {
+      opacity: 1;
+      top: 0px;
+    }
+  }
+
+  @keyframes titleBuildIn {
+    from {
+      top: -20px;
+    }
+    to {
+      top: 20px;
+    }
+  }
+
+  @keyframes bannerBuildIn {
+    from {
+      left: -1000px;
+    }
+    to {
+      left: 100px;
+    }
+  }
+
+  @keyframes iconOverAnim {
+    from {
+      opacity: 1;
+    }
+    to {
+      transform: scale(1.1);
+      background-color: red;
+      opacity: 1;
+    }
+  }
+
+  @keyframes iconOutAnim {
+    from {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes iconClickAnim {
+    to {
+      transform: scale(10);
+      background-color: red;
+      opacity: 1;
+      z-index: 1;
+    }
+  }
+
