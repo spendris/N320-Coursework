@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Week 5 Lab</title>
+    <style>
+        body {
+            background: #000;
+        }
+        .form {
+            border-radius: 5px;
+            background-color: #7ecfc0;
+            padding: 5px;
+            margin: 5px;
+            width: 175px;
+        }
+
+        .student {
+            border-radius: 4px;
+            width: 100px;
+            height: 100px;
+            padding: 3px;
+            background-color: #eee;
+            color: #ef4b4b;
+        }
+
+        .arrow {
+            cursor: pointer;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 5px;
+            background: #7ecfc0;
+        }
+
+        .cardActive {
+            transition: transform .3s ease, opacity .3s ease;
+            transform: rotate(0deg);
+            opacity: 1;
+        }
+
+        .cardOutRight {
+            transition: transform  .3s ease, opacity .3s ease;
+            transform: rotate(45deg);
+            opacity: 0;
+        }
+        .cardOutLeft {
+            transition: transform  .3s ease, opacity .3s ease;
+            transform: rotate(-45deg);
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app" stlye="display:flex">
+        <student-card v-bind:student="currentStudent" v-bind:isactive="cardActive"></student-card>
+        <span style="display:flex">
+        <div class="arrow" v-on:click="arrowClickedLeft"> Joy </div>
+        <div class="arrow" v-on:click="arrowClickedRight"> Teach </div>
+        <div id="studentLog" style ="color:white"></div>
+        </span>
+        <br>
+
+        <span style="display:flex">
+        <form id="frm1" class="form" action="js/app.js">
+            Student Name:<br>
+            <input type="text" name="firstname">
+            <br>
+            Student Skill:<br>
+            <input type="text" name="studentskill">
+            <br>
+            Student Joy:<br>
+            <input type="text" name="studentjoy"><br>
+        </form> 
+        <br>
+        <div class="arrow" v-on:click="enrollStudent"> Enroll </div>
+        <div class="arrow" v-on:click="expellStudent"> Expell </div>
+    </span>
+       
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
