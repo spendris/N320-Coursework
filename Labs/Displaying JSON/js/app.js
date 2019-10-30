@@ -8,6 +8,6 @@ new Vue({
     mounted() {
         axios
             .get('json/data.json')
-            .then(response => (this.shoes = response.shoes))
+            .then(response => (this.shoes = response))
     }
 })
