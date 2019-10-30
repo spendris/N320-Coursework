@@ -1,0 +1,34 @@
+{
+    "shoes": [
+        {
+            "size":"12",
+            "color":"Olive",
+            "type":"Loafers",
+            "brand":"LLBean"
+        },
+        {
+            "size":"10",
+            "color":"Red",
+            "type":"High Tops",
+            "brand":"Vans"
+        },
+        {
+            "size":"8",
+            "color":"Black",
+            "type":"Boots",
+            "brand":"Doc Martin"
+        },
+        {
+            "size":"12",
+            "color":"Yellow",
+            "type":"Running Shoes",
+            "brand":"Adidas"
+        },
+        {
+            "size":"10",
+            "color":"Mesquite",
+            "type":"Dress Shoes",
+            "brand":"LLBean"
+        }
+    ]
+}
