@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blackjack</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"></link><!--CSS-->
+    
+</head>
+<body>
+    <span style="display:flex">
+        <div class="table">
+            <div id="app">
+                <!--Dealer Hand-->
+                <h1>Dealer</h1>
+                <span style="display:flex">
+                <div class="resultBinder" v-bind:class="{ 'winner': dealerWins, 'loser': playerWins}">
+                    
+                        <div class="cardSquare">
+                            <span style="display:flex">
+                                <playing-card id="d0" v-if="dealt || endResult" v-bind:card="dealerHand[0]"></playing-card>
+                                <playing-card id="d1" v-if="endResult" v-bind:card="dealerHand[1]"></playing-card>
+                                <playing-card id="d2" v-if="endResult" v-bind:card="dealerHand[2]"></playing-card>
+                                <playing-card id="d3" v-if="endResult" v-bind:card="dealerHand[3]"></playing-card>
+                            </span>
+                        </div>
+                        
+                    
+                </div>
+                <div class="valueCounter" v-if="endResult" v-bind:class="{ 'winnerTotal': dealerWins, 'loserTotal': playerWins}"> {{dealerHandValue}} </div>
+                </span>
+                <br>
+                <!--Money-->
+                <span style="display:flex">
+                    <div>
+                        <div class="money" id="funds"> Money: {{money}} </div>
+                        <div class="money" id="pot"> Pot: {{pot}} </div>
+                    </div>
+                    <!--Bet Amounts-->
+                    <div>
+                        <div class="betButton" v-if="!dealt && handOver && !endResult" v-on:click="bet100()">
+                            Bet $100
+                        </div>
+                        <div class="betButton" v-if="!dealt && handOver && !endResult" v-on:click="bet250()">
+                            Bet $250
+                        </div>
+                        <div class="betButton" v-if="!dealt && handOver && !endResult" v-on:click="bet500()">
+                            Bet $500
+                        </div>
+                    </div>
+                    <div>
+                        <div class="betButton" v-if="!dealt && handOver && !endResult" v-on:click="bet750()">
+                            Bet $750
+                        </div>
+                        <div class="betButton" v-if="!dealt && handOver && !endResult" v-on:click="bet1000()">
+                            Bet $1000
+                        </div>    
+                        <div class="betButton" v-if="!dealt && handOver && !endResult" v-on:click="bet2000()">
+                            bet $2000
+                        </div>
+                        <div class="action" v-if="endResult" v-on:click="reset">New Game</div>
+                    </div>
+                    <br>
+                    <div class="announcer-bet" v-if="dealt">-${{bet}}</div>
+                    <div class="announcer-win" v-if="endResult && playerWins && !blackjack">+${{bet*2}}</div>
+                    <div class="announcer-win" v-if="endResult && playerWins && blackjack">Blackjack (x2)</div>
+                </span>
+                
+                <br>
+                <!--Player Hand-->
+                <span style="display:flex">
+                <div class="resultBinder" v-bind:class="{ 'winner': playerWins, 'loser': dealerWins}">
+                    <div class="cardSquare">
+                        <span style="display:flex">
+                            <playing-card v-if="!handOver || endResult" v-bind:card="playerHand[0]"></playing-card>
+                            <playing-card v-if="!handOver || endResult" v-bind:card="playerHand[1]"></playing-card>
+                            <playing-card v-if="!handOver || endResult" v-bind:card="playerHand[2]"></playing-card>
+                            <playing-card v-if="!handOver || endResult" v-bind:card="playerHand[3]"></playing-card>
+                            <playing-card v-if="!handOver || endResult" v-bind:card="playerHand[4]"></playing-card>
+                            <playing-card v-if="!handOver || endResult" v-bind:card="playerHand[5]"></playing-card>
+                        </span>
+                        <br>
+                        <!--Player Action Buttons-->
+                        <span style="display:flex">
+                            <div class="action" v-if="dealt && !handOver" v-on:click="hit">Hit</div>
+                            <div class="action" v-if="dealt && !handOver" v-on:click="stand">Stand</div>
+                            <div class="action" v-if="dealt && !handOver" v-on:click="doubleDown">Double Down</div>
+                            <div class="action" v-if="dealt && !handOver" v-on:click="surrender">Surrender</div>
+                        </span>
+                    </div>
+                    
+                </div> 
+                <div class="valueCounter" v-if="endResult" v-bind:class="{ 'winnerTotal': playerWins, 'loserTotal': dealerWins}"> {{playerHandValue}} </div>
+                </span>
+            </div>
+        </div>
+        <div class="information">
+            House Rules <br>
+            --------------- <br>
+            <ol>
+                <li>Place a bet (2 to 1), after this the dealer will give you two cards and reveal one of their cards.</li>
+                <li>The aim of the game is to end with a higher-valued hand than the dealer, or get the "blackjack" (a hand value of 21).</li>
+                <li>Exceeding a hand value of 21 is a "bust" and results in a loss.</li>
+                <li>In the event of a tie, no money is lost or gained.</li>
+                <li>Dealer stands on reaching 17.</li>
+                <li> Aces are 11, Royals are 10, other cards are face value.</li>
+            </ol><br><br>
+            Legal Moves <br>
+            --------------- <br>
+            <ol>
+                <li><span style="font-weight:bold">Hit</span> - Draw another card.</li>
+                <li><span style="font-weight:bold">Stand</span> - Ends the round, then the dealer draws their cards.</li>
+                <li><span style="font-weight:bold">Double Down</span> - Doubles the bet and draws one more card.</li>
+                <li><span style="font-weight:bold">Surrender</span> - Ends the round, returns half of your initial bet to you.</li>
+            </ol>
+
+        </div>
+    </span>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script><!--Vue-->
+    <script src="js/app.js"></script><!--Javascript-->
+</body>
+</html>

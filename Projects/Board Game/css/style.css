@@ -1,0 +1,173 @@
+h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:antiquewhite;
+}
+.betButton {
+    border-radius: 5px;
+    width: 100px;
+    height: 25px;
+    background-color: lightsteelblue;
+    color: black;
+    margin: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.betPlaced {
+    height: 50px;
+}
+.card {
+    border-radius: 6px;
+    border: 3px solid steelblue;
+
+    width: 100px;
+    height: 115px;
+    padding: 10px;
+    margin:10px;
+
+    background-color: #eee;
+    
+    animation: cardDeal .7s;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24pt;
+    text-align: center;
+    line-height: 0.8;
+}
+.card-black {
+    color: black;
+}
+.card-red {
+    color: red;
+}
+.action {
+    border-radius: 5px;
+    width: 105px;
+    height:25px;
+    padding:5px;
+    background-color: lightsteelblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    margin: 20px;
+    text-align:center;
+}
+.cardSquare {
+    border-radius: 5px;
+    width: 600px;
+    height: 160px;
+    padding: 3px;
+    background-color: green;
+    margin: 10px;
+}
+.table {
+    border-radius: 100px;
+    border: 15px solid rgb(31, 20, 20);
+    background-color: darkgreen;
+    width: 800px;
+    height: 700px;
+    padding: 75px;
+}
+.announcer-bet {
+    margin: 20px;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:antiquewhite;
+    font-size: 3em;
+    animation: betting 1.7s ;
+    opacity: 0;
+}
+.announcer-win {
+    margin: 20px;
+    font-weight: bold;
+    font-size: 3em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: antiquewhite;
+    animation: betting 1.7s ease-out;
+    opacity: 0;
+}
+.money {
+    margin: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: antiquewhite;
+    font-size: 1.2em;
+}
+.resultBinder {
+    border: 5px solid antiquewhite;
+    border-radius: 5px;
+    width: 625px;
+    height: 185px;
+    margin: 10px;
+    padding: 5px;
+}
+.valueCounter {
+    border: 5px solid antiquewhite;
+    border-radius: 5px;
+    width: 100px;
+    height: 55px;
+    margin:10px;
+    padding: 10px;
+    text-align: center;
+    font-size: 36pt;
+    font-weight:bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    animation: valuePop .7s;
+
+}
+.winner {
+    border: 5px solid antiquewhite;
+    border-radius: 5px;
+    width: 625px;
+    height: 185px;
+    margin: 10px;
+    padding: 5px;
+    background-color:lightgreen;
+}
+.winnerTotal {
+    color:lightgreen;
+}
+.loser {
+    border: 5px solid antiquewhite;
+    border-radius: 5px;
+    width: 625px;
+    height: 185px;
+    margin: 10px;
+    padding: 5px;
+    background-color:red;
+}
+.loserTotal {
+    color:red;
+}
+.information {
+    border: 15px solid rgb(31, 20, 20);
+    border-radius: 5px;
+    margin-left: -15px;
+    margin-top: 100px;
+    padding: 5px;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.2em;
+    color: black;
+
+    background-color: greenyellow;
+
+    width: 500px;
+    height: 650px;
+    
+}
+@keyframes cardDeal {
+    0% { border: 10px solid steelblue; opacity: 0.2; transform:translate(10px, 10px); transform:rotate(180deg);}
+    25% { border: 8px solid steelblue; opacity: 0.4; transform:translate(12px, 12px); }
+    50% { border: 6px solid steelblue; opacity: 0.6; transform:translate(14px, 14px); }
+    75% { border: 4px solid steelblue; opacity: 0.8; transform:translate(2px, 2px); }
+    100% { border: 3px solid steelblue; opacity: 1; transform:translate(0px, 0px);  }
+}
+@keyframes valuePop {
+    25% { font-size: 48pt; }
+    75% { font-size: 40pt }
+    100% { font-size: 36pt; }
+}
+@keyframes betting {
+    0% {opacity: 0; transform:translate(500px, 0px)}
+    5% {opacity: 0; transform:translate(550px,0px)}
+    10% {opacity: 1; transform:translate(10px, 0px)}
+    30% {opacity: 1; transform: translate(15px, 0px);}
+    100% {opacity: 0; transform:translate(15px, 0px)}
+}
