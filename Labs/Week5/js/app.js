@@ -5,7 +5,7 @@ Vue.component("student-card", {
     },
 template: "<div class='student' v-bind:class='{ cardActive:isactive, cardOutRight:!isactive, cardOutLeft:!isactive }'>{{ student.name }} <br> Skill: {{ student.skill }} <br> Joy: {{student.joy }}</div>"
 })
-
+ 
 var app = new Vue({
     el: "#app",
     data: {

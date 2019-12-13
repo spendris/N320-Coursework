@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Smash Ultimate Tier List</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    
+    <div id="app">
+        <!--Header-->
+        <div id="header">
+            <span style="display:flex">
+                <div id="home" v-on:click.native="goHome()"><img style="width:200px; height:200px;" src="img/Smash_Ball.png" v-on:click="goHome()"></div>
+                <div class="headerText" v-on:click="goHome()">SUPER SMASH BROS ULTIMATE Tier List</div>
+            </span>
+        </div>
+    
+        <!--Transition===================================================================================================-->
+        <!--divs used to make the animated transition between pages-->
+        <div class="transition" id="transition1" v-if="transition">
+
+        </div>
+        <div class="transition" id="transition2" v-if="transition">
+    
+        </div>
+        <div class="transition" id="transition3" v-if="transition">
+    
+        </div>
+        <div class="transition" id="transition4" v-if="transition">
+    
+        </div>
+        <div id="transition5" v-if="transition">
+    
+        </div>
+        <!--Character List Page==========================================================================================-->
+        <!--Tier list with all character icons-->
+
+        <div id="mainCharacterSelect" class="container" v-if="page1">
+            <span style="display:flex">
+                <div class="tierHeader"> 
+                    <br><br><br>
+                    S TIER 
+                </div>
+
+
+                <div class="tierList">
+                    <!--First Row-->
+                    <span style="display:flex">
+                        <!--SNAKE-->
+                        <div id="snake" class="characterIconContainer" v-on:click="select($event)">
+                            <img class="characterIcon" src="img/Snake - Thumbnail.png" alt="Snake"> 
+                            <img class="franchiseIcon" src="img/MetalGearSymbol.svg" alt="Metal Gear">
+                            <div class="label">SNAKE</div>
+                        </div>
+                        <!--PEACH-->
+                        <div id="peach" class="characterIconContainer" v-on:click="select($event)">
+                            <img class="characterIcon" src="img/Peach - Thumbnail.png" alt="Peach"> 
+                            <img class="franchiseIcon" src="img/PeachSymbol.svg" alt="Mario">
+                            <div class="label">PEACH</div>
+                        </div>
+                        <!--FOX-->
+                        <div id="fox" class="characterIconContainer" v-on:click="select($event)">
+                            <img class="characterIcon" src="img/Fox - Thumbnail.png" alt="Fox">
+                            <img class="franchiseIcon" src="img/StarFoxSymbol.svg" alt="star fox symbol">
+                            <div class="label">FOX</div>
+                        </div>
+                        <!--PIKACHU-->
+                        <div id="pikachu" class="characterIconContainer" v-on:click="select($event)">
+                            <img class="characterIcon" src="img/Pikachu - Thumbnail.png" alt="Pikachu">
+                            <img class="franchiseIcon" src="img/PokemonSymbol.svg" alt="Pokemon">
+                            <div class="label">PIKACHU</div>
+                        </div>
+                        <!--PICHU-->
+                        <div id="pichu" class="characterIconContainer" v-on:click="select($event)">
+                            <img class="characterIcon" src="img/Pichu - Thumbnail.png" alt="Pichu">
+                            <img class="franchiseIcon" src="img/PokemonSymbol.svg" alt="Pokemon">
+                            <div class="label">PICHU</div>
+                        </div>
+                    </span>
+
+                    <!--Second Row-->
+                    <span style="display:flex">
+                        <!--PALUTENA-->
+                        <div id="palutena" class="characterIconContainer" v-on:click="select($event)">
+                            <img class="characterIcon" src="img/Palutena - Thumbnail.png" alt="Palutena">
+                            <img class="franchiseIcon" src="img/KidIcarusSymbol.svg" alt="Pokemon">
+                            <div class="label">PALUTENA</div>
+                        </div>
+                        <!--WOLF-->
+                        <div id="wolf" class="characterIconContainer" v-on:click="select($event)">
+                            <img class="characterIcon" src="img/Wolf - Thumbnail.png" alt="Wolf">
+                            <img class="franchiseIcon" src="img/StarFoxSymbol.svg" alt="StarFox">
+                            <div class="label">WOLF</div>
+                        </div>
+                        <!--JOKER-->
+                        <div id="joker" class="characterIconContainer" v-on:click="select($event)">
+                            <img class="characterIcon" src="img/Joker - Thumbnail.png" alt="Joker">
+                            <img class="franchiseIcon" src="img/PersonaSymbol.svg" alt="Persona">
+                            <div class="label">JOKER</div>
+                        </div>
+                        <!--INKLING-->
+                        <div id="inkling" class="characterIconContainer" v-on:click="select($event)">
+                            <img class="characterIcon" src="img/Inkling - Thumbnail.png" alt="Inkling">
+                            <img class="franchiseIcon" src="img/SplatoonSymbol.svg" alt="Splatoon">
+                            <div class="label">INKLING</div>
+                        </div>
+                        <!--LUCINA-->
+                        <div lid="lucina" class="characterIconContainer" v-on:click="select($event)">
+                            <img class="characterIcon" src="img/Lucina - Thumbnail.png" alt="Lucina">
+                            <img class="franchiseIcon" src="img/FireEmblemSymbol.svg" alt="Fire Emblem">
+                            <div class="label">LUCINA</div>
+                        </div>
+                    </span>
+                </div>
+            </span>   
+        </div>
+        
+
+
+
+        <!--Character Details Page=======================================================================================-->
+        <!--Displays character stats and special moves-->
+        <div id="characterDetailPage" class="container" v-if="page2">
+            <span style="display:flex">
+
+                <!--Character Image-->
+                <div class="characterIconDetial" v-on:click="goHome()">
+                    <div class="tierHeader">SNAKE</div>
+                    <img class="characterIconDetial" src="img/Snake - Thumbnail.png" alt="Snake">
+                </div>
+
+                <!--Character Stats-->
+                <div class="characterStats">
+                    <ul>
+                        <li id="damage">
+                            <partial :name="partialName"></partial>
+                        </li>
+                        <li id="recovery">
+                            <!-- Recovery: {{ data.characters.Snake.stats.recovery }} -->
+                        </li>
+                        <li id="neutral">
+                            <!-- Neutral:  {{ data.characters.Snake.stats.neutral }} -->
+                        </li>
+                        <li id="defense">
+                            <!-- Defense:  {{ data.characters.Snake.stats.defense }} -->
+                        </li>
+                        <li id="weight">
+                            <!-- Weight:   {{ data.characters.Snake.stats.weight }} -->
+                        </li>
+                    </ul>
+                </div>
+            </span>
+
+            <!--Special Moves-->
+            <span style="display:flex">
+                <div class="characterMoveList">
+                    <div class="tierHeader">MOVES</div>
+                    <span style="display:flex">
+
+                        <!--NEUTRAL SPECIAL-->
+                        <div class="Move">
+                            <div class="moveVisual">Neutral Special</div>
+                            <div class="buttonContainer">
+                                <img class="buttonSymbol" src="img/StickNeutral.svg">                                    <img class="buttonSymbol" src="img/ButtonB.svg">
+                            </div>
+                        </div>
+
+                        <!--SIDE SPECIAL-->
+                        <div class="Move">
+                            <div class="moveVisual">Side Special</div>
+                            <div class="buttonContainer">
+                                <img class="buttonSymbol" src="img/StickLeft.svg">
+                                <img class="buttonSymbol" src="img/ButtonB.svg">
+                            </div>
+                        </div>
+
+                        <!--DOWN SPECIAL-->
+                        <div class="Move">
+                            <div class="moveVisual">Down Special</div>
+                            <div class="buttonContainer">
+                                <img class="buttonSymbol" src="img/StickDown.svg">
+                                <img class="buttonSymbol" src="img/ButtonB.svg">
+                            </div>
+                        </div>
+
+                        <!--UP SPECIAL-->
+                        <div class="Move">
+                            <div class="moveVisual">Up Special</div>
+                            <div class="buttonContainer">
+                                <img class="buttonSymbol" src="img/StickUp.svg">
+                                <img class="buttonSymbol" src="img/ButtonB.svg">
+                            </div>
+                        </div>
+
+                    </span>
+                </div>
+            </span>
+
+            <!--Character Carousel-->
+            <div class="characterCarousel">
+                <div class="tierHeader">OTHER CHARACTERS</div>
+                <img class="characterIconCarousel" src="img/Peach - Thumbnail.png" alt="Peach">
+                <img class="characterIconCarousel" src="img/Fox - Thumbnail.png" alt="Fox"> 
+                <img class="characterIconCarousel" src="img/Pikachu - Thumbnail.png" alt="Pikachu">
+                <img class="characterIconCarousel" src="img/Pichu - Thumbnail.png" alt="Pichu">
+                <img class="characterIconCarousel" src="img/Palutena - Thumbnail.png" alt="Palutena">
+                <img class="characterIconCarousel" src="img/Wolf - Thumbnail.png" alt="Wolf">
+                <img class="characterIconCarousel" src="img/Joker - Thumbnail.png" alt="Joker">
+                <img class="characterIconCarousel" src="img/Inkling - Thumbnail.png" alt="Inkling">
+                <img class="characterIconCarousel" src="img/Lucina - Thumbnail.png" alt="Lucina">
+            </div>
+            
+        </div>
+
+        <!--Character Special Moves Page-->
+        <div id="characterMovesPage" class="container">
+
+
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
